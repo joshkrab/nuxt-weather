@@ -16,10 +16,12 @@
     "core-js": "^3.25.3",
     "cross-env": "^7.0.3",
     "nuxt": "^2.15.8",
+    "sass": "^1.57.1",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10",
-    "vue3-select2-component": "^0.1.7"
+    "vue3-select2-component": "^0.1.7",
+    "vuetify": "^3.1.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",

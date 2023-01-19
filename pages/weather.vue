@@ -1,6 +1,17 @@
 <template>
   <div class="form">
     <h3>Check the weather now:</h3>
+    <CustomInput />
+
+    <input class="input" type="search" placeholder="Type city name...">
+    <button class="btn" @click="searchHandler">
+      Search
+    </button>
+    <ul>
+      <li v-for="oneCity in myOptions" :key="oneCity.id">
+        {{ oneCity.name }}
+      </li>
+    </ul>
 
     <input
       v-model="city"
@@ -27,8 +38,11 @@
 
 <script>
 import axios from 'axios'
+import CustomInput from '../components/CustomInput.vue'
+import { cities } from '~/data/cities'
+
 export default {
-  components: {},
+  components: { CustomInput },
   data () {
     return {
       city: '',
@@ -39,8 +53,18 @@ export default {
       outClasses: ['output'],
       out404Classes: ['out404'],
       myValue: '',
-      myOptions: ['kyiv', 'lviv', 'kharkiv']
+      myOptions: []
     }
+  },
+
+  computed: {
+    searchHandler () {
+      return this.myOptions
+    }
+  },
+
+  created () {
+    this.myOptions = cities
   },
 
   methods: {
