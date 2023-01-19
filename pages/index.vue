@@ -1,5 +1,9 @@
 <template>
-  <Tutorial />
+  <main>
+    <h1>
+      Main Page
+    </h1>
+  </main>
 </template>
 
 <script>
