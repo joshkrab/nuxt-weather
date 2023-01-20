@@ -17,10 +17,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['vuetify/lib/styles/main.sass'],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/vuetify.js'],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -28,6 +28,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/vuetify',
     '@nuxtjs/eslint-module'
 
   ],
@@ -46,12 +47,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['vuetify']
-  },
-  vite: {
-    define: {
-      'process.env.DEBUG': false
-    }
+
   }
 
 }

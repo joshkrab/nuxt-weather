@@ -1,24 +1,22 @@
 <template>
   <div class="form">
     <h3>Check the weather now:</h3>
-    <CustomInput />
 
-    <input class="input" type="search" placeholder="Type city name...">
-    <button class="btn" @click="searchHandler">
-      Search
-    </button>
-    <ul>
-      <li v-for="oneCity in myOptions" :key="oneCity.id">
-        {{ oneCity.name }}
-      </li>
-    </ul>
+    <v-app id="inspire">
+      <v-autocomplete
+        v-model="city"
+        :items="items"
+        solo
+        label="Type city name..."
+      />
+    </v-app>
 
-    <input
+    <!-- <input
       v-model="city"
       class="input"
       type="text"
       placeholder="Input city name"
-    >
+    > -->
 
     <button class="btn" @click="getWeather">
       Get weather
@@ -38,14 +36,13 @@
 
 <script>
 import axios from 'axios'
-import CustomInput from '../components/CustomInput.vue'
-import { cities } from '~/data/cities'
+import { cities } from '../data/cities'
 
 export default {
-  components: { CustomInput },
+  components: {},
   data () {
     return {
-      city: '',
+      // city: '',
       temperature: '',
       wind: '',
       pressure: '',
@@ -53,18 +50,13 @@ export default {
       outClasses: ['output'],
       out404Classes: ['out404'],
       myValue: '',
-      myOptions: []
-    }
-  },
-
-  computed: {
-    searchHandler () {
-      return this.myOptions
+      items: [],
+      city: null
     }
   },
 
   created () {
-    this.myOptions = cities
+    this.items = cities
   },
 
   methods: {
@@ -105,6 +97,10 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.v-application--wrap {
+  min-height: 0vh !important;
 }
 
 .form {
